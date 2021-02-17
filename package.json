@@ -1,0 +1,23 @@
+{
+  "name": "locations-ng",
+  "version": "1.0.0",
+  "description": "Locations NG provides data and functions to get all states, their cities and LGAs in Nigeria.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ceemion/locations-ng.git"
+  },
+  "keywords": [
+    "locations",
+    "Nigeria"
+  ],
+  "author": "Fiyin Adebayo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ceemion/locations-ng/issues"
+  },
+  "homepage": "https://github.com/ceemion/locations-ng#readme"
+}
