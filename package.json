@@ -15,9 +15,12 @@
     "Nigeria"
   ],
   "author": "Fiyin Adebayo",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ceemion/locations-ng/issues"
   },
-  "homepage": "https://github.com/ceemion/locations-ng#readme"
+  "homepage": "https://github.com/ceemion/locations-ng#readme",
+  "engines": {
+    "node": "14.15.x"
+  }
 }
