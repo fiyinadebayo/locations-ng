@@ -1,22 +1,12 @@
-const states = require('../data/states.json');
-
-/**
-   * Joins string with _ and converts to lowercase.
-   *
-   * @private
-   * @param {string} string The string to modify.
-   * @returns {string} Returns `text`.
-   */
-function formatQuery(text) {
-  return text ? text.toLowerCase().split(' ').join('_') : text
-}
+const states = require('./data/states.json');
+const city = require('./city');
+const helpers = require('./lib/helpers');
 
 /**
  * Returns all the states in Nigeria with their respective capital.
  *
  * @since 1.0.0
- * @param {Object} object The object to inspect.
- * @returns {boolean} Returns an array.
+ * @returns {Array} Returns an array.
  * @example
  *
  * all()
@@ -36,7 +26,7 @@ function all() {
 }
 
  /**
- * Returns all the states in Nigeria with their respective capital.
+ * Returns details of a state in Nigeria.
  *
  * @since 1.0.0
  * @param {string} state The state to search by.
@@ -48,7 +38,7 @@ function all() {
  *
  */
 function details(state) {
-  const index = states.findIndex(item => item.alias === formatQuery(state))
+  const index = states.findIndex(item => item.alias === helpers.formatQuery(state))
   console.log(index)
 
   if (index < 0) {
@@ -57,7 +47,10 @@ function details(state) {
       status: 404
     }
   } else {
-    return states[index]
+    return {
+      ...states[index],
+      cities: city.cities(state)
+    }
   }
 }
 
