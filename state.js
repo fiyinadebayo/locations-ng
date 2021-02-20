@@ -1,5 +1,6 @@
 const states = require('./data/states.json');
 const city = require('./city');
+const lga = require('./lga');
 const helpers = require('./lib/helpers');
 
 /**
@@ -49,7 +50,8 @@ function details(state) {
   } else {
     return {
       ...states[index],
-      cities: city.cities(state)
+      cities: city.cities(state),
+      lgas: lga.lgas(state)
     }
   }
 }
