@@ -2,14 +2,14 @@ const state = require('../state');
 const canonicalStates = require('./responses/canonical-states.json');
 
 describe('state.all', () => {
-  test('It returns 37 states in Nigeria', () => {
+  test('it returns 37 states in Nigeria', () => {
     expect(state.all().length).toBe(37)
   });
 
   test('it returns all canonical states, with name and capital', () => {
     expect(state.all()).toEqual(canonicalStates)
   });
-})
+});
 
 describe('state.details', () => {
   describe('when state is not found', () => {
