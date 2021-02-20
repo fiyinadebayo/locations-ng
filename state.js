@@ -7,7 +7,7 @@ const helpers = require('./lib/helpers');
  * Returns all the states in Nigeria with their respective capital.
  *
  * @since 1.0.0
- * @returns {Array} Returns an array.
+ * @returns {Array} Returns an `array`.
  * @example
  *
  * all()
@@ -31,7 +31,7 @@ function all() {
  *
  * @since 1.0.0
  * @param {string} state The state to search by.
- * @returns {Object} Returns an object.
+ * @returns {Object} Returns an `object`.
  * @example
  *
  * details('Lagos')
@@ -39,8 +39,7 @@ function all() {
  *
  */
 function details(state) {
-  const index = states.findIndex(item => item.alias === helpers.formatQuery(state))
-  console.log(index)
+  const index = states.findIndex(s => s.alias === helpers.formatQuery(state));
 
   if (index < 0) {
     return {
@@ -56,7 +55,30 @@ function details(state) {
   }
 }
 
+/**
+ * Returns the capital of a state in Nigeria.
+ *
+ * @since 1.0.0
+ * @param {string} state The state to search by.
+ * @returns {string} Returns a `string`.
+ * @example
+ *
+ * capital('Lagos')
+ * // => Ikeja
+ *
+ */
+function capital(state) {
+  const index = states.findIndex(s => s.alias === helpers.formatQuery(state));
+
+  if (index < 0) {
+    return `No state found for '${state}'`
+  } else {
+    return states[index].capital
+  }
+}
+
 module.exports = {
   all,
-  details
+  details,
+  capital
 };

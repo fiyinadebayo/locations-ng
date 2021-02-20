@@ -5,7 +5,7 @@ const helpers = require('./lib/helpers');
  * Returns all the cities in Nigeria.
  *
  * @since 1.0.0
- * @returns {Array} Returns an array.
+ * @returns {Array} Returns an `array`.
  * @example
  *
  * all()
@@ -35,7 +35,7 @@ function all() {
  *
  */
 function cities(state) {
-  const index = citiesData.findIndex(item => item.alias === helpers.formatQuery(state))
+  const index = citiesData.findIndex(c => c.alias === helpers.formatQuery(state))
 
   if (index < 0) {
     return [`No cities found for '${state}'`]

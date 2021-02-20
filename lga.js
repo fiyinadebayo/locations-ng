@@ -5,7 +5,7 @@ const helpers = require('./lib/helpers');
  * Returns all Local Government Areas (LGAs) in Nigeria.
  *
  * @since 1.0.0
- * @returns {Array} Returns an array.
+ * @returns {Array} Returns an `array`.
  * @example
  *
  * all()
@@ -42,7 +42,7 @@ function all() {
  *
  */
 function lgas(state) {
-  const index = lgasData.findIndex(item => item.state_alias === helpers.formatQuery(state))
+  const index = lgasData.findIndex(l => l.state_alias === helpers.formatQuery(state))
 
   if (index < 0) {
     return [`No LGAs found for '${state}'`]
@@ -76,7 +76,7 @@ function localities(state, lga) {
   if (!state || !lga)
     return ['You must enter a state and lga.']
 
-  const stateIndex = lgasData.findIndex(item => item.state_alias === helpers.formatQuery(state));
+  const stateIndex = lgasData.findIndex(s => s.state_alias === helpers.formatQuery(state));
 
   if (stateIndex < 0)
     return [`${state} state not found`]
