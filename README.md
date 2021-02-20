@@ -1,4 +1,4 @@
-# Locations NG &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ceemion/locations-ng/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/locations-ng.svg?style=flat)](https://www.npmjs.com/package/locations-ng)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ceemion/locations-ng#contributing)
+# Locations NG &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ceemion/locations-ng/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/locations-ng.svg?style=flat)](https://www.npmjs.com/package/locations-ng) [![<ORG_NAME>](https://circleci.com/gh/ceemion/locations-ng.svg?style=shield)](https://circleci.com/gh/ceemion/locations-ng/tree/master) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ceemion/locations-ng#contributing)
 
 Locations NG is a JavaScript library that provides functions to get all states, their cities and LGAs in Nigeria.
 
