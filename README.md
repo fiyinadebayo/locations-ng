@@ -21,7 +21,7 @@ $ yarn add locations-ng
 
 ### Require the package
 ```js
-const locationsNg = require('locations-ng')
+var locationsNg = require('locations-ng')
 ```
 
 ### 1. GET all States, canonical
