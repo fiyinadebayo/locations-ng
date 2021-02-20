@@ -1,7 +1,7 @@
 {
   "name": "locations-ng",
-  "version": "1.0.0",
-  "description": "Locations NG provides data and functions to get all states, their cities and LGAs in Nigeria.",
+  "version": "1.0.1",
+  "description": "Locations NG is a JavaScript library that provides functions to get all states, their cities and LGAs in Nigeria.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
