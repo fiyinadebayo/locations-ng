@@ -79,12 +79,12 @@ function localities(state, lga) {
   const stateIndex = lgasData.findIndex(s => s.state_alias === helpers.formatQuery(state));
 
   if (stateIndex < 0)
-    return [`${state} state not found`]
+    return [`'${state}' state not found`]
 
   const lgaIndex = lgasData[stateIndex].locality.findIndex(l => l.lga_alias === helpers.formatQuery(lga));
 
   if (lgaIndex < 0)
-    return [`${lga} LGA not found for ${state} state.`]
+    return [`'${lga}' LGA not found for '${state}' state.`]
 
   return lgasData[stateIndex].locality[lgaIndex].localities
 }

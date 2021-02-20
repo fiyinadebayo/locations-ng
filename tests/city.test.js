@@ -2,7 +2,7 @@ const city = require('../city');
 const citiesResponse = require('./responses/cities.json');
 
 describe('city.all', () => {
-  test('it returns all cities', () => {
+  test('it returns all cities count', () => {
     expect(city.all().length).toBe(29)
   });
 
