@@ -10,11 +10,18 @@ const helpers = require('./lib/helpers');
  *
  * all()
  * // => [
- * //      { state: 'Akwa Ibom', alias: 'akwa_ibom', cities: [ 'Eket', 'Ikot Ekpene', 'Oron', 'Uyo' ] },
- * //      { state: 'Bauchi', alias: 'bauchi', cities: [ 'Bauchi' ] },
- * //      { state: 'Benue', alias: 'benue', cities: [ 'Makurdi' ] },
+ * //      {
+ * //        state: 'Abia',
+ * //        state_alias: 'abia',
+ * //        lgas: [
+ * //           'Aba North',
+ * //           ...
+ * //        ],
+ * //        locality: [
+ * //           {}
+ * //        ]
+ * //      },
  * //      ...
- * //      { state: 'Zamfara', alias: 'zamfara', cities: [ 'Gusau' ] }
  * //    ]
  *
  */
@@ -23,28 +30,67 @@ function all() {
 }
 
  /**
- * Returns all the cities for a state in Nigeria.
+ * Returns all the LGAs for a state in Nigeria.
  *
  * @since 1.0.0
  * @param {string} state The state to search by.
  * @returns {Array} Returns an `array`.
  * @example
  *
- * cities('Akwa Ibom')
- * // => [ 'Eket', 'Ikot Ekpene', 'Oron', 'Uyo' ]
+ * lgas('fct')
+ * // => [ 'Abaji', 'Amac', 'Bwari', 'Gwagwalada', 'Kuje', 'Kwali' ]
  *
  */
-function cities(state) {
-  const index = citiesData.findIndex(item => item.alias === helpers.formatQuery(state))
+function lgas(state) {
+  const index = lgasData.findIndex(item => item.state_alias === helpers.formatQuery(state))
 
   if (index < 0) {
-    return [`No cities found for '${state}'`]
+    return [`No LGAs found for '${state}'`]
   } else {
-    return citiesData[index].cities
+    return lgasData[index].lgas
   }
+}
+
+/**
+ * Returns all the cities for a state in Nigeria.
+ *
+ * @since 1.0.0
+ * @param {string} state The state to search by.
+ * @param {string} lga The lga to search by.
+ * @returns {Array} Returns an `array`.
+ * @example
+ *
+ * localities('Abia', 'Aba North')
+ * // => [
+ * //      'Ariaria',    'Asaokpoja',
+ * //      'Asaokpulor', 'Eziama  ward',
+ * //      'Industrial', 'Ogbor 1',
+ * //      'Ogbor 2',    'Old GRA',
+ * //      'Osusu 1',    'Osusu 2',
+ * //      'St. Eugene', 'Umuogor',
+ * //      'Umuola',     'Uratta'
+ * //    ]
+ *
+ */
+function localities(state, lga) {
+  if (!state || !lga)
+    return ['You must enter a state and lga.']
+
+  const stateIndex = lgasData.findIndex(item => item.state_alias === helpers.formatQuery(state));
+
+  if (stateIndex < 0)
+    return [`${state} state not found`]
+
+  const lgaIndex = lgasData[stateIndex].locality.findIndex(l => l.lga_alias === helpers.formatQuery(lga));
+
+  if (lgaIndex < 0)
+    return [`${lga} LGA not found for ${state} state.`]
+
+  return lgasData[stateIndex].locality[lgaIndex].localities
 }
 
 module.exports = {
   all,
-  cities
+  lgas,
+  localities
 };
