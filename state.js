@@ -22,7 +22,7 @@ const helpers = require('./lib/helpers');
  */
 function all() {
   return states.map(state => (
-  {name: state.name, capital: state.capital}
+    {name: state.name, capital: state.capital}
   ))
 }
 
